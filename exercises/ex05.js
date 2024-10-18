@@ -17,4 +17,4 @@ queue.enqueue(5);
 queue.enqueue(6);
 
 mixQueue(queue);
-console.log(queue.printQueue()); // Output: 1 4 2 5 4 6
+console.log(queue.printQueue()); // Output: 1 4 2 5 3 6
