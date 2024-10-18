@@ -5,6 +5,15 @@ const SLL = require('../lib/SLL');
 
 function findMiddle(list) {
   // your code here
+  let slow = list.getHead(); 
+  let fast = list.getHead(); 
+
+  while (fast && fast.next) {
+    slow = slow.next;       
+    fast = fast.next.next; 
+  }
+
+  return slow ? slow.data : null;
 }
 
 const list = new SLL();
