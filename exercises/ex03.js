@@ -14,4 +14,4 @@ stack.push("C");
 stack.push("D");
 
 insertAfterTarget("B", "X");
-stack.printStack(); // A B X C D
+console.log(stack.printStack()); // A B X C D
