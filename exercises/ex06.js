@@ -8,6 +8,32 @@ const Queue = require('../lib/Queue');
 
 function storeCatalog(queue) {
   // your code here
+  const products = {};
+  let totalPrice = 0;
+  let mostExpensive = "";
+  let highestPrice = 0;
+
+  while (queue.size() > 0) {
+    const { product, price } = queue.dequeue();
+
+    if (!products[product]) {
+      products[product] = 0;
+    }
+    products[product]++;
+
+    totalPrice += price;
+
+    if (price > highestPrice) {
+      highestPrice = price;
+      mostExpensive = product;
+    }
+  }
+
+  return {
+    products,
+    totalPrice,
+    mostExpensive
+  };
 }
 
 const store = new Queue();
