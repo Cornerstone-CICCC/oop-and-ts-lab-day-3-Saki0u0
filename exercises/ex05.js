@@ -6,6 +6,33 @@ const Queue = require('../lib/Queue');
 
 function mixQueue(queue) {
   // your code here
+  const size = queue.size(); 
+  const firstHalf = [];
+  const secondHalf = [];
+
+  for (let i = 0; i < Math.ceil(size / 2); i++) {
+    firstHalf.push(queue.dequeue()); 
+  }
+
+  while (queue.size() > 0) {
+    secondHalf.push(queue.dequeue()); 
+  }
+
+  const mixedQueue = new Queue();
+  const maxLength = Math.max(firstHalf.length, secondHalf.length);
+
+  for (let i = 0; i < maxLength; i++) {
+    if (i < firstHalf.length) {
+      mixedQueue.enqueue(firstHalf[i]);
+    }
+    if (i < secondHalf.length) {
+      mixedQueue.enqueue(secondHalf[i]); 
+    }
+  }
+
+  while (mixedQueue.size() > 0) {
+    queue.enqueue(mixedQueue.dequeue());
+  }
 }
 
 const queue = new Queue();
